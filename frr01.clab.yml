@@ -23,6 +23,9 @@ topology:
     PC1:
       kind: linux
       image: praqma/network-multitool:latest
+      exec:
+      - ip ip link set eth1 up
+      - ip addr add 192.168.11.2/24 dev eth1
     PC2:
       kind: linux
       image: praqma/network-multitool:latest
