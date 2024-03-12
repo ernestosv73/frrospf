@@ -46,11 +46,14 @@ topology:
       - ip addr add 192.168.13.2/24 dev eth1
       - ip route add 192.168.0.0/16 via 192.168.13.1 dev eth1
       - ip route add 10.10.10.0/24 via 192.168.13.1 dev eth1
-
+    PC4:
+      kind: linux
+      image: docker.io/esanchezv/kaliipv6v2:latest
   links:
     - endpoints: ["router1:eth1", "router2:eth1"]
     - endpoints: ["router1:eth2", "router3:eth1"]
     - endpoints: ["router2:eth2", "router3:eth2"]
     - endpoints: ["PC1:eth1", "router1:eth3"]
     - endpoints: ["PC2:eth1", "router2:eth3"]
-    - endpoints: ["PC3:eth1", "router3:eth3"]
+    - endpoints: ["PC4:eth1", "router3:eth3"]
+   
